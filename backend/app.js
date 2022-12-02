@@ -49,6 +49,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// api user login
 app.post("/login-user", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -85,6 +86,7 @@ app.post("/userData", async (req, res) => {
   } catch (error) {}
 });
 
+// api forgot password
 app.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
   try {
@@ -101,8 +103,8 @@ app.post("/forgot-password", async (req, res) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "adarsh438tcsckandivali@gmail.com",
-        pass: "rmdklolcsmswvyfw",
+        user: "ilham@gmail.com",
+        pass: "1234",
       },
     });
 
@@ -124,6 +126,7 @@ app.post("/forgot-password", async (req, res) => {
   } catch (error) {}
 });
 
+// api reset password with id and token
 app.get("/reset-password/:id/:token", async (req, res) => {
   const { id, token } = req.params;
   console.log(req.params);
@@ -141,6 +144,7 @@ app.get("/reset-password/:id/:token", async (req, res) => {
   }
 });
 
+// api reset password with id and token
 app.post("/reset-password/:id/:token", async (req, res) => {
   const { id, token } = req.params;
   const { password } = req.body;
